@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <style>
+
+        </style>
+        <canvas id="canvas" width="500" height="500"></canvas>
+        <script src="js/ripple.js"></script>
+        <script>
+
+            let ripple;
+            let pixelSize = 4;
+
+            window.onload = function()
+            {
+                canvas = document.getElementById("canvas");
+                ctx = canvas.getContext("2d");
+
+                ripple = new Ripple(canvas.width, canvas.height, pixelSize);
+                //console.log("here");
+                //ripple.draw(ctx);
+                //update();
+
+                document.addEventListener("mousedown", () => {
+                let x = Math.floor(event.clientX / pixelSize); // Gets Mouse X
+                let y = Math.floor(event.clientY / pixelSize); // Gets Mouse Y
+                ripple.previous[x][y] = 2500;
+                });
+                var loop = setInterval(update, 1000/20);
+            }
+
+            update = function()
+            {
+                
+                /*ripple.previous[20][20] = 2550;
+                ripple.previous[21][20] = 2550;
+                ripple.previous[20][21] = 2550;
+                ripple.previous[19][20] = 2550;
+                ripple.previous[20][19] = 2550;
+                ripple.previous[50][50] = 255;*/
+                ripple.addRandomPixels(1);
+                ripple.draw(ctx);
+
+            }
+        </script>
+    </body>
+</html>
