@@ -7,7 +7,7 @@ class Ripple
         this.pixelSize = pixelSize;
         this.cols = Math.floor(width/pixelSize)
         this.rows = Math.floor(height/pixelSize);
-        this.damping = 0.96;
+        this.damping = 0.97;
 
         this.current = [];
         this.previous = [];
