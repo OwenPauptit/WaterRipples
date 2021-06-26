@@ -58,8 +58,10 @@ class Ripple
                 this.current[i][j] *= this.damping;
 
                 
-                var value = this.current[i][j];
-                ctx.fillStyle = "rgb(" + String(value) + "," + String(value) + "," + String(value) + ")";
+                var r = this.current[i][j] * 0.7;
+                var b = this.current[i][j];
+                var g = this.current[i][j] * 0.8;
+                ctx.fillStyle = "rgb(" + String(r) + "," + String(g) + "," + String(b) + ")";
                 ctx.fillRect(i*this.pixelSize,j*this.pixelSize,this.pixelSize,this.pixelSize);
             
 
